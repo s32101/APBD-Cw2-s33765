@@ -4,12 +4,10 @@ public class Equipment
 {
     public Guid Id { get; }
     public bool Availibility { get; set; }
-    public string Name { get; set; }
 
-    Equipment(String name)
+    public Equipment()
     {
         Id = Guid.NewGuid();
         Availibility = true;
-        Name = name;
     }
 }
