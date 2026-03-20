@@ -54,7 +54,7 @@ public class Lease
     int calculateCosts()// opłata = 20 złotych za każdy dzień opóźnienia
     {
         TimeSpan timeSpan = ExpiryDate - ReturnDate;
-        int costs = 20 * timeSpan.Days;
+        int costs = Rules.CostPerDay * timeSpan.Days;
         return costs;
     }
     

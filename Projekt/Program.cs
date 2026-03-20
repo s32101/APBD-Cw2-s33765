@@ -12,6 +12,17 @@ public class Program
     
     static void Main(String[] args)
     {
+        LoadDatabase();
+        
+        
+        
+        
+    }
+
+
+
+    private static void LoadDatabase()
+    {
         string basePath = AppDomain.CurrentDomain.BaseDirectory;
         
         Users = new Repository<User>(GetPath("users.json"));
@@ -20,13 +31,7 @@ public class Program
         Leases = new Repository<Lease>(GetPath("leases.json"));
         
         Console.WriteLine("Database Loaded");
-
-        List<User> AllUsers = Users.GetList();
-        
-        PrintList(AllUsers);
-
     }
-
 
     
     
