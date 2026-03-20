@@ -20,14 +20,18 @@ public class Program
         Leases = new Repository<Lease>(GetPath("leases.json"));
         
         Console.WriteLine("Database Loaded");
+
+        List<User> AllUsers = Users.GetList();
         
+        PrintList(AllUsers);
+
     }
 
 
     
     
     // Wyświetlanie całej listy (Trzeba dodać do każdej głównej klasy ovveride na String)
-    public static void printList<T>(List<T> list)
+    public static void PrintList<T>(List<T> list)
     {
         foreach (T item in list)
         {

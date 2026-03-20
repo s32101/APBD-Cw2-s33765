@@ -6,4 +6,9 @@ public class Student : User
     {
         
     }
+    
+    public override string ToString()
+    {
+        return $"Student: {base.ToString()}";
+    }
 }

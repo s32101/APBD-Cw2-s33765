@@ -6,4 +6,9 @@ public class Employee : User
     {
         
     }
+    
+    public override string ToString()
+    {
+        return $"Employee: {base.ToString()}";
+    }
 }
