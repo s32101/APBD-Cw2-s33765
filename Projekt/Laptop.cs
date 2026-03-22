@@ -7,4 +7,9 @@ public class Laptop : Equipment
     {
         
     }
+    
+    public override string ToString()
+    {
+        return $"{Name} -> Availible: {Availibility}";
+    }
 }

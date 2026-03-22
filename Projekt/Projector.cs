@@ -7,4 +7,9 @@ public class Projector : Equipment
     {
         
     }
+    
+    public override string ToString()
+    {
+        return $"{Name} -> Availible: {Availibility}";
+    }
 }

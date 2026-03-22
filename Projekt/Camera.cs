@@ -7,4 +7,9 @@ public class Camera : Equipment
     {
         
     }
+
+    public override string ToString()
+    {
+        return $"{Name} -> Availible: {Availibility}";
+    }
 }

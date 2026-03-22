@@ -1,5 +1,11 @@
 ﻿namespace Projekt;
 
+using System.Text.Json.Serialization;
+
+[JsonPolymorphic(TypeDiscriminatorPropertyName = "$type")]
+[JsonDerivedType(typeof(Student), "student")]
+[JsonDerivedType(typeof(Employee), "employee")]
+
 public class User
 {
     public Guid Id { get; }

@@ -18,9 +18,8 @@ public class Program
     static void Main(String[] args)
     {
         LoadDatabase();
-
+        
         StartProgram();
-
     }
 
     private static void StartProgram()
@@ -47,22 +46,26 @@ public class Program
                                       "Like: user, lease, equipment, due\n\n" +
                                       "list - Makes a list of objects currently in the database.\n" +
                                       "Example: list users\n" +
-                                      "You can choose from: equipments, leases, dues, users, all\n\n");
+                                      "You can choose from: equipment, lease, due, user, all\n\n");
                     break;
-                case "list":
+                case "list":// TODO: Wyświetlenie wyłącznie dostępnych equipment
                     if (args == 1)
                     {
-                        if (inputArgs[1] == "equipments")
+                        if (inputArgs[1] == "equipment")
                         {
+                            Console.WriteLine("Equipments: ");
                             PrintList(Equipments.GetList());
-                        }else if (inputArgs[1] == "leases")
+                        }else if (inputArgs[1] == "lease")
                         {
+                            Console.WriteLine("Leases: ");
                             PrintList(Leases.GetList());    
-                        }else if (inputArgs[1] == "dues")
+                        }else if (inputArgs[1] == "due")
                         {
+                            Console.WriteLine("Dues: ");
                             PrintList(Dues.GetList());
-                        }else if (inputArgs[1] == "users")
+                        }else if (inputArgs[1] == "user")
                         {
+                            Console.WriteLine("Users: ");
                             PrintList(Users.GetList());
                         }else if (inputArgs[1] == "all")
                         {
@@ -74,6 +77,11 @@ public class Program
                             PrintList(Leases.GetList());
                             Console.WriteLine("Dues: ");
                             PrintList(Dues.GetList());
+                        }
+                        else
+                        {
+                            Console.WriteLine("Proper use of the command: list <nameTolist>");
+                            Console.WriteLine("Names to list: equipments, leases, dues, users, all");
                         }
                     }
                     else
@@ -102,10 +110,10 @@ public class Program
                             
                         }else if (inputArgs[1] == "user")
                         {
-                            if (inputArgs[2].ToLower() == "student" && args == 4)
+                            if (inputArgs[2].ToLower() == "student")
                             {
                                 Users.Add(new Student(inputArgs[3],  inputArgs[4]));
-                            }if (inputArgs[2].ToLower() == "employee" &&  args == 4)
+                            }else if (inputArgs[2].ToLower() == "employee")
                             {
                                 Users.Add(new Employee(inputArgs[3],  inputArgs[4]));
                             }
@@ -133,6 +141,18 @@ public class Program
                     }
 
                     break;
+                case "remove":
+                    if (args > 1)
+                    {
+                        
+                    }
+                    else
+                    {
+                        
+                    }
+                    
+                    break;
+                
                 default:
                     Console.WriteLine($"'{input}' is not recognized as an available command");
                     break;
