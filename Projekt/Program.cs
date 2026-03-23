@@ -7,10 +7,10 @@ using System.Text.Json;
 public class Program
 {
     // Repozytoria
-    static Repository<User> Users;
-    static Repository<Due> Dues;
-    static Repository<Equipment> Equipments;
-    static Repository<Lease> Leases;
+    static List<User> Users;
+    static List<Due> Dues;
+    static List<Equipment> Equipments;
+    static List<Lease> Leases;
     
     // bool podtrzymujący program przy życiu
     static bool isRunning = true;
@@ -52,11 +52,11 @@ public class Program
     private static void LoadDatabase()
     {
         string basePath = AppDomain.CurrentDomain.BaseDirectory;
-        
-        Users = new Repository<User>(GetPath("users.json"));
-        Dues = new Repository<Due>(GetPath("dues.json"));
-        Equipments = new Repository<Equipment>(GetPath("equipments.json"));
-        Leases = new Repository<Lease>(GetPath("leases.json"));
+
+        Users = ListJsonExtensions.LoadListFromFile<User>(GetPath("users.json"));
+        Dues = ListJsonExtensions.LoadListFromFile<Due>(GetPath("dues.json"));
+        Equipments = ListJsonExtensions.LoadListFromFile<Equipment>(GetPath("equipments.json"));
+        Leases = ListJsonExtensions.LoadListFromFile<Lease>(GetPath("leases.json"));
         
         Console.WriteLine("Database Loaded");
     }
